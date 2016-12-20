@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_surprise"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.zorigt.e_wheel.SurpriseActivity">
+
+    <TextView
+        android:text="Surprise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView3" />
+
+    <Switch
+        android:text="Startled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignEnd="@+id/btn_startled"
+        android:id="@+id/switch_startled" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox_shocked"
+        android:text="Shocked"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/switch_startled"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <CheckBox
+        android:text="Dismayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox_dismayed"
+        android:visibility="invisible"
+        android:layout_alignBaseline="@+id/checkBox_shocked"
+        android:layout_alignBottom="@+id/checkBox_shocked"
+        android:layout_toEndOf="@+id/checkBox_shocked"
+        android:layout_marginStart="21dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/surprise"
+        android:id="@+id/imageView2"
+        android:layout_marginBottom="74dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_next"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <CheckBox
+        android:text="Eager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox_eager"
+        android:visibility="invisible"
+        android:layout_below="@+id/switch_startled"
+        android:layout_alignStart="@+id/checkBox_shocked" />
+
+    <CheckBox
+        android:text="Energetic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox_energetic"
+        android:visibility="invisible"
+        android:layout_alignBaseline="@+id/checkBox_eager"
+        android:layout_alignBottom="@+id/checkBox_eager"
+        android:layout_alignStart="@+id/checkBox_dismayed" />
+
+    <Switch
+        android:text="Excited"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch_excited"
+        android:layout_alignBottom="@+id/checkBox_eager"
+        android:layout_alignEnd="@+id/switch_startled" />
+</RelativeLayout>
