@@ -26,7 +26,8 @@
         android:layout_below="@+id/textView7"
         android:layout_alignStart="@+id/textView7"
         android:layout_marginTop="40dp"
-        android:id="@+id/textView_happy" />
+        android:id="@+id/textView_happy"
+        android:visibility="invisible" />
 
     <TextView
         android:text="Joyful"
@@ -89,7 +90,8 @@
         android:layout_below="@+id/textView_confident"
         android:layout_alignEnd="@+id/textView_happy"
         android:layout_marginTop="63dp"
-        android:id="@+id/textView_surprise" />
+        android:id="@+id/textView_surprise"
+        android:visibility="invisible" />
 
     <TextView
         android:text="Startled"
@@ -126,5 +128,33 @@
         android:layout_below="@+id/textView_shocked"
         android:layout_alignStart="@+id/textView_shocked"
         android:visibility="invisible" />
+
+    <TextView
+        android:text="Eager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_excited"
+        android:layout_alignEnd="@+id/textView_liberated"
+        android:id="@+id/textView_eager"
+        android:layout_alignStart="@+id/textView_excited"
+        android:visibility="invisible" />
+
+    <TextView
+        android:text="Energetic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_eager"
+        android:layout_alignEnd="@+id/textView_eager"
+        android:id="@+id/textView_energetic"
+        android:visibility="invisible" />
+
+    <Button
+        android:text="Restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/textView_energetic"
+        android:layout_marginBottom="36dp"
+        android:id="@+id/restart" />
 
 </RelativeLayout>

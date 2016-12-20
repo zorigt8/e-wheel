@@ -50,6 +50,15 @@ public class HappyActivity extends AppCompatActivity {
 
         final Button btn_next = (Button) findViewById(R.id.btn_next);
 
+        /** To Be Worked on Later
+
+        if (mApp.getPrimary("happy") & mApp.getSecondary("joyful")){
+            s_joyful.setChecked(true);
+        } else {
+            mApp.unsetSecondary("joyful");
+        }
+         **/
+
         s_joyful.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -198,6 +207,11 @@ public class HappyActivity extends AppCompatActivity {
             Intent secondAct = new Intent(this, SadActivity.class);
             startActivity(secondAct);
         }
+        else {
+            Intent summaryAct = new Intent(this, SummaryActivity.class);
+            startActivity(summaryAct);
+        }
+
     }
 
     @Override

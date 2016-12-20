@@ -39,22 +39,9 @@ public class MainActivity extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
 
-
-        // get your App ID from the app's main page on the Vungle Dashboard after setting up your app
-        //final String app_id = "58542b8f49704450630001b8";
-
-        // initialize the Publisher SDK
-        //vunglePub.init(this, app_id);
-
-        //onLevelComplete();
-
-
-
         final Initializer mApp = ((Initializer) getApplicationContext());
         mApp.initPrimary();
         mApp.initSecondary();
-
-        //Log.d("json obj: ", mApp.getPrimary().toString());
 
         final Button btn_happy = (Button) findViewById(R.id.happy);
         final Button btn_sad = (Button) findViewById(R.id.sad);

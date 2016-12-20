@@ -1,9 +1,11 @@
 package com.zorigt.e_wheel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.vungle.publisher.AdConfig;
@@ -53,43 +55,66 @@ public class SummaryActivity extends AppCompatActivity {
         final TextView txt_shocked = (TextView) findViewById(R.id.textView_shocked);
         final TextView txt_dismayed = (TextView) findViewById(R.id.textView_dismayed);
         final TextView txt_excited = (TextView) findViewById(R.id.textView_excited);
+        final TextView txt_eager = (TextView) findViewById(R.id.textView_eager);
+        final TextView txt_energetic = (TextView) findViewById(R.id.textView_energetic);
 
-        JSONObject temp = mApp.getSecondaryJson();
+        final Button btn_restart = (Button) findViewById(R.id.restart);
+
+        JSONObject secondary = mApp.getSecondaryJson();
 
         try {
-            if (temp.getBoolean("joyful")) {
+            if (mApp.getPrimary("happy")){
+                txt_happy.setVisibility(View.VISIBLE);
+            }
+            if (mApp.getPrimary("surprise")){
+                txt_surprise.setVisibility(View.VISIBLE);
+            }
+            if (secondary.getBoolean("joyful")) {
                 txt_joyful.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("liberated")) {
+            if (secondary.getBoolean("liberated")) {
                 txt_liberated.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("ecstatic")) {
-               txt_ecstatic.setVisibility(View.VISIBLE);
+            if (secondary.getBoolean("ecstatic")) {
+                txt_ecstatic.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("proud")) {
+            if (secondary.getBoolean("proud")) {
                 txt_proud.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("important")) {
+            if (secondary.getBoolean("important")) {
                 txt_important.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("confident")) {
+            if (secondary.getBoolean("confident")) {
                 txt_confident.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("startled")) {
+            if (secondary.getBoolean("startled")) {
                 txt_startled.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("shocked")) {
+            if (secondary.getBoolean("shocked")) {
                 txt_shocked.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("dismayed")) {
+            if (secondary.getBoolean("dismayed")) {
                 txt_dismayed.setVisibility(View.VISIBLE);
             }
-            if (temp.getBoolean("excited")) {
+            if (secondary.getBoolean("excited")) {
                 txt_excited.setVisibility(View.VISIBLE);
+            }
+            if (secondary.getBoolean("eager")) {
+                txt_eager.setVisibility(View.VISIBLE);
+            }
+            if (secondary.getBoolean("energetic")) {
+                txt_energetic.setVisibility(View.VISIBLE);
             }
         } catch (JSONException e) {
             Log.e("e-wheel", "unexpected JSON exception", e);
         }
+
+        btn_restart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                restartApp(v);
+            }
+        });
     }
 
     @Override
@@ -102,6 +127,16 @@ public class SummaryActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         vunglePub.onResume();
+    }
+
+    public void restartApp(View view) {
+
+        final Initializer mApp = ((Initializer) getApplicationContext());
+        mApp.initPrimary();
+        mApp.initSecondary();
+
+        Intent restartAct = new Intent(this, MainActivity.class);
+        startActivity(restartAct);
     }
 
     private void onLevelComplete() {
